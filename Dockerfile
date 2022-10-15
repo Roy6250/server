@@ -9,6 +9,7 @@ ADD package*.json ./
 #Install Files
 RUN npm install
 
+EXPOSE 5000
 
 ADD index.js ./
 CMD [ "node", "index.js"]
