@@ -46,19 +46,34 @@ plugins:
 - name: rate-limiting
   service: my-cloud-server
   config:
-    second: 5
-    hour: 10000
+    #second: 5
+    hour: 5
     policy: local
     fault_tolerant: true
     hide_client_headers: false
     redis_ssl: false
     redis_ssl_verify: false
+- name: key-auth
+  service: my-cloud-server
+  config: 
+    key_names:
+    - apikey
+    key_in_body: false
+    key_in_header: true
+    key_in_query: true
+    hide_credentials: false
+    run_on_preflight: true  
 consumers:
   - username: login_server_issuer
+  - username: business_client_1  
+
 jwt_secrets:
   - consumer: login_server_issuer
     secret: "secret-hash-brown-squirrel-verse-rate-limit"
 
+keyauth_credentials:
+  - consumer: business_client_1
+    key: abcd  
 
 
 # A kong config file has an associated workspace. By default,
