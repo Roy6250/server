@@ -15,6 +15,20 @@ const customers = [
   }
 ];
 
+const cloud = [
+  {
+    id: 0,
+    first_name: 'amazon',
+    last_name: 'web services'
+  },
+  {
+    id: 1,
+    first_name: 'google',
+    last_name: 'cloud services'
+  }
+];
+
+
 const clients = [
   {
     id: 1,
@@ -37,6 +51,11 @@ app.get('/api/v1/customers', (req, res) => {
 app.get('/api/v1/customers/:id', (req, res) => {
   res.json(customers[req.params.id]);
 });
+
+app.get('/api/v1/cloud', (req, res) => {
+  res.json(cloud);
+});
+
 
 app.get('/api/v1/clients', (req, res) => {
   res.json(clients);
