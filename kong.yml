@@ -43,6 +43,16 @@ plugins:
     key_claim_name: kid
     claims_to_verify:
     - exp
+- name: rate-limiting
+  service: my-cloud-server
+  config:
+    second: 5
+    hour: 10000
+    policy: local
+    fault_tolerant: true
+    hide_client_headers: false
+    redis_ssl: false
+    redis_ssl_verify: false
 consumers:
   - username: login_server_issuer
 jwt_secrets:
