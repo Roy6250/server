@@ -45,6 +45,7 @@ const clients = [
 app.use(bodyParser.json());
 
 app.get('/api/v1/customers', (req, res) => {
+  console.log(req.headers);
   res.json(customers);
 });
 
@@ -64,10 +65,6 @@ app.get('/api/v1/clients', (req, res) => {
 app.get('/api/v1/clients/:id', (req, res) => {
   res.json(clients[req.params.id]);
 });
-
-app.get('/',(req,res)=>{
-  res.json(`Its running at port ${port}`);
-})
 
 app.listen(port, () => {
   console.log(`Server started!`);

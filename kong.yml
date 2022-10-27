@@ -21,13 +21,36 @@ _format_version: "3.0"
 _transform: true
 
 services:
-- name: my-api-server
-  url: http://localhost:5000/api/v1/customers
-routes:
-- name: api-requests
+- name: my-api-server 
+  url: http://localhost:5000/api/v1/customers 
+  routes:
+  - name: api-requests
+    service: my-api-server
+    paths:
+      - /api/v1/customers
+- name: my-cloud-server
+  url: http://localhost:5000/api/v1/cloud
+  routes:
+  - name: cloud-requests
+    service: my-cloud-server
+    paths:
+      - /api/v1/cloud
+plugins:    
+- name: jwt
   service: my-api-server
-  paths:
-    - /api/v1/customers
+  enabled: true
+  config:
+    key_claim_name: kid
+    claims_to_verify:
+    - exp
+consumers:
+  - username: login_server_issuer
+jwt_secrets:
+  - consumer: login_server_issuer
+    secret: "secret-hash-brown-squirrel-verse-rate-limit"
+
+
+
 # A kong config file has an associated workspace. By default,
 # "default" workspace is used but can be changed via the metadata
 # field _workspace
