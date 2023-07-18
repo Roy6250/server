@@ -11,7 +11,7 @@ const customers = [
   {
     id: 6,
     first_name: 'Roy',
-    last_name: 'Gonzales'
+    last_name: 'Sayantan'
   }
 ];
 
