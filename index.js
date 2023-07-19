@@ -67,9 +67,6 @@ app.get('/api/v1/clients/:id', (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Server started!`);
-});
 
 // export default app;
 
