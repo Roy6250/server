@@ -66,6 +66,16 @@ app.get('/api/v1/clients/:id', (req, res) => {
   res.json(clients[req.params.id]);
 });
 
+
 app.listen(port, () => {
   console.log(`Server started!`);
 });
+
+// export default app;
+
+// export {app}
+
+module.exports={
+  app
+
+}
