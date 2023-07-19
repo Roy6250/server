@@ -11,5 +11,5 @@ RUN npm install
 
 EXPOSE 5000
 
-ADD server.js ./
+COPY . .
 CMD [ "node", "server.js"]
