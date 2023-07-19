@@ -5,16 +5,18 @@ pipeline {
     
   stages {
         
-    stage('Build') {
-      steps {
-        sh 'docker build -t jen .'
-      }
-    }
+    
 
     stage('Test') {
       steps {
         sh 'yarn install'
         sh 'yarn test'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'docker build -t jen .'
       }
     }
 
