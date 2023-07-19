@@ -21,7 +21,7 @@ pipeline {
 
      stage('Deploy') {
       steps {
-        
+              
           sh 'docker stop jen-container1'
           sh 'docker rm jen-container1'
           sh 'docker run -d --name jen-container1 -p 5000:5000 jen'
