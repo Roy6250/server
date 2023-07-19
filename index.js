@@ -6,7 +6,7 @@ const customers = [
   {
     id: 5,
     first_name: 'Vivek',
-    last_name: 'Kumar'
+    last_name: 'Rai'
   },
   {
     id: 6,
