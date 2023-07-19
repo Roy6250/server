@@ -11,7 +11,8 @@ const customers = [
   {
     id: 6,
     first_name: 'Roy',
-    last_name: 'Sayantan'
+    last_name: 'Sayantan',
+    test:"Success"
   }
 ];
 
