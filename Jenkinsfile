@@ -11,6 +11,12 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh 'yarn test'
+      }
+    }
+
      stage('Deploy') {
       steps {
           sh 'docker stop jen-container1'
